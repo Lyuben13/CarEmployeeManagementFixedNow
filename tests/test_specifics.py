@@ -1,7 +1,6 @@
 import unittest
 from unittest.mock import patch, MagicMock # noqa
 from models.specifics import Employee, Car, Sale
-# from datetime import datetime
 
 
 class TestEmployee(unittest.TestCase):
