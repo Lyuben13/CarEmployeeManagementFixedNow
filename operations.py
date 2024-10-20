@@ -1,5 +1,5 @@
 from datetime import datetime
-from appConfig import EMPLOYEE_DB_PATH, CAR_DB_PATH, SALE_DB_PATH
+from app_config import EMPLOYEE_DB_PATH, CAR_DB_PATH, SALE_DB_PATH
 import os
 import csv
 from models.specifics import Sale, Employee, Car

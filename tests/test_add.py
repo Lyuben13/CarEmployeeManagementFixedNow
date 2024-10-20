@@ -10,7 +10,7 @@ logger.add("file.log", rotation="1 MB", level="INFO", backtrace=True, diagnose=T
 
 class TestOperations(unittest.TestCase):
 
-    @patch('appConfig.EMPLOYEE_DB_PATH', new_callable=lambda: Path('db/employees.csv'))  # Път до базата данни
+    @patch('app_config.EMPLOYEE_DB_PATH', new_callable=lambda: Path('db/employees.csv'))  # Път до базата данни
     @patch('builtins.open', new_callable=mock_open)  # Мокване на open() за операции с файлове
     @patch('csv.DictWriter.writerow')  # Мокване на DictWriter
     def test_add_employee(self, mock_writerow, mock_file, mock_db_path): # noqa
@@ -35,7 +35,7 @@ class TestOperations(unittest.TestCase):
 
         logger.info("Successfully added employee: {}", employee.full_name)  # Логване на успешното добавяне
 
-    @patch('appConfig.CAR_DB_PATH', new_callable=lambda: Path('db/cars.csv'))  # Път до базата данни
+    @patch('app_config.CAR_DB_PATH', new_callable=lambda: Path('db/cars.csv'))  # Път до базата данни
     @patch('builtins.open', new_callable=mock_open)  # Мокване на open() за операции с файлове
     @patch('csv.DictWriter.writerow')  # Мокване на DictWriter
     def test_add_car(self, mock_writerow, mock_file, mock_db_path): # noqa
@@ -61,7 +61,7 @@ class TestOperations(unittest.TestCase):
 
         logger.info("Successfully added car: {} {}", car.manufacturer, car.model)  # Логване на успешното добавяне
 
-    @patch('appConfig.SALE_DB_PATH', new_callable=lambda: Path('db/sales.csv'))  # Път до базата данни
+    @patch('app_config.SALE_DB_PATH', new_callable=lambda: Path('db/sales.csv'))  # Път до базата данни
     @patch('builtins.open', new_callable=mock_open)  # Мокване на open() за операции с файлове
     @patch('csv.DictWriter.writerow')  # Мокване на DictWriter
     def test_add_sale(self, mock_writerow, mock_file, mock_db_path): # noqa
