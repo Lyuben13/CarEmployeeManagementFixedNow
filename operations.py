@@ -236,6 +236,7 @@ def get_sales_by_employee(employee_name):
     employee_sales = [sale for sale in sales if sale.employee == employee_name]  # Филтриране по служител
     return employee_sales  # Връщане на продажбите на конкретния служител
 
+
 def sales_by_employee(employee_name):
     sales = get_sales_by_employee(employee_name)
     report = f"Sales by {employee_name}:\n"
@@ -279,7 +280,6 @@ def best_selling_car_for_period(start_date, end_date):
 
     print(report)
 
-    # Пита потребителя дали иска да запази отчета в текстов файл
     save_choice = input("Do you want to save the report in a text file? (yes/no): ").strip().lower()
 
     if save_choice == 'yes':
@@ -289,70 +289,10 @@ def best_selling_car_for_period(start_date, end_date):
     else:
         print("Report not saved.")
 
-    return best_car # noqa
-
-# def best_selling_car_for_period(start_date, end_date):
-#     sales = get_sales_by_period(start_date, end_date)  # Получаване на продажбите за периода
-#     car_sales = {}  # Речник за брой продажби на коли
-#
-#     # Изчисляване на броя на продажбите на всяка кола
-#     for sale in sales:
-#         if sale.car in car_sales:
-#             car_sales[sale.car] += 1
-#         else:
-#             car_sales[sale.car] = 1
-#
-#     # Намиране на най-продаваната кола
-#     best_selling_car = max(car_sales, key=car_sales.get) if car_sales else None
-#     return best_selling_car  # Връщане на най-продаваната кола
+    return best_car  # noqa
 
 
 # 10. Функция за най-добър служител за период
-# def best_employee_for_period(start_date, end_date):
-#     sales = get_sales_by_period(start_date, end_date)  # Получаване на продажбите за периода
-#     employee_sales = {}  # Речник за брой продажби на служителите
-#
-#     # Изчисляване на броя на продажбите на всеки служител
-#     for sale in sales:
-#         if sale.employee in employee_sales:
-#             employee_sales[sale.employee] += 1
-#         else:
-#             employee_sales[sale.employee] = 1
-#
-#     # Намиране на най-добрия служител
-#     best_employee = max(employee_sales, key=employee_sales.get) if employee_sales else None
-#     return best_employee  # Връщане на най-добрия служител
-
-# def best_employee_for_period(start_date, end_date):
-#     sales = get_sales_by_period(start_date, end_date)
-#     employee_sales = {}
-#
-#     for sale in sales:
-#         if sale.employee in employee_sales:
-#             employee_sales[sale.employee] += 1
-#         else:
-#             employee_sales[sale.employee] = 1
-#
-#     if employee_sales:
-#         best_employee = max(employee_sales, key=employee_sales.get)
-#         report = (f"Best employee for the period from {start_date} to {end_date}: {best_employee} "
-#                   f"(made {employee_sales[best_employee]} sales)")
-#     else:
-#         report = f"No employee sales found for the period from {start_date} to {end_date}."
-#
-#     print(report)
-#
-#     # Пита потребителя дали иска да запази отчета в текстов файл
-#     save_choice = input("Do you want to save the report in a text file? (yes/no): ").strip().lower()
-#
-#     if save_choice == 'yes':
-#         with open("best_employee_report.txt", mode='w') as file:
-#             file.write(report)
-#         print("Report saved as 'best_employee_report.txt'.")
-#     else:
-#         print("Report not saved.")
-
-
 def best_employee_for_period(start_date, end_date):
     sales = get_sales_by_period(start_date, end_date)
     employee_sales = {}
@@ -368,7 +308,7 @@ def best_employee_for_period(start_date, end_date):
     if employee_sales:
         best_employee = max(employee_sales, key=employee_sales.get)
         best_employee_sales_count = employee_sales[best_employee]
-        report = f"Best employee for the period from {start_date} to {end_date}: {best_employee} (made {best_employee_sales_count} sales)" # noqa
+        report = f"Best employee for the period from {start_date} to {end_date}: {best_employee} (made {best_employee_sales_count} sales)"  # noqa
     else:
         report = f"No sales found for the period from {start_date} to {end_date}."
 
@@ -383,62 +323,10 @@ def best_employee_for_period(start_date, end_date):
         print("Report saved as 'best_employee_report.txt'.")
 
     # Връщаме най-добрия служител, или None
-    return best_employee if employee_sales else None # noqa
-
-
+    return best_employee if employee_sales else None  # noqa
 
 
 # 11. Функция за изчисляване на чиста печалба за период
-# def total_profit_for_period(start_date, end_date):
-#     sales = get_sales_by_period(start_date, end_date)  # Получаване на продажбите за периода
-#     total_profit = 0.0  # Инициализиране на общата печалба
-#
-#     # Създаване на речник за бързо търсене на автомобили
-#     cars = {car.model: car for car in list_cars()}
-#
-#     # Изчисляване на печалбата от всяка продажба
-#     for sale in sales:
-#         car = cars.get(sale.car)  # Получаване на информация за колата
-#         if car:
-#             try:
-#                 selling_price = float(sale.actual_selling_price)  # Конвертиране на цената на продажба
-#                 cost_price = float(car.cost_price)  # Конвертиране на цената на колата
-#                 profit = selling_price - cost_price  # Изчисляване на печалбата
-#                 total_profit += profit  # Добавяне на печалбата към общата
-#             except (ValueError, TypeError) as e:
-#                 print(f"Error processing sale {sale}: {e}")  # Обработка на грешки
-#
-#     return total_profit  # Връщане на общата печалба
-
-# def total_profit_for_period(start_date, end_date):
-#     sales = get_sales_by_period(start_date, end_date)
-#     total_profit = 0.0
-#     cars = {car.model: car for car in list_cars()}
-#
-#     for sale in sales:
-#         car = cars.get(sale.car)
-#         if car:
-#             try:
-#                 selling_price = float(sale.actual_selling_price)
-#                 cost_price = float(car.cost_price)
-#                 profit = selling_price - cost_price
-#                 total_profit += profit
-#             except (ValueError, TypeError) as e:
-#                 print(f"Error processing sale {sale}: {e}")
-#
-#     report = f"Total profit for the period from {start_date} to {end_date}: {total_profit:.2f}"
-#     # print(report)
-#
-#     # Пита потребителя дали иска да запази отчета в текстов файл
-#     save_choice = input("Do you want to save the report in a text file? (yes/no): ").strip().lower()
-#
-#     if save_choice == 'yes':
-#         with open("total_profit_report.txt", mode='w') as file:
-#             file.write(report)
-#         print("Report saved as 'total_profit_report.txt'.")
-#     else:
-#         print("Report not saved.")
-
 def total_profit_for_period(start_date, end_date):
     sales = get_sales_by_period(start_date, end_date)
     total_profit = 0.0
@@ -468,4 +356,3 @@ def total_profit_for_period(start_date, end_date):
 
     # Връщаме резултата, за да няма None, ако не се използва
     return total_profit
-
