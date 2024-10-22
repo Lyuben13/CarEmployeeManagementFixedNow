@@ -1,11 +1,10 @@
 from models.specifics import Employee, Car, Sale
 from operations import (
     add_employee, add_car, add_sale, list_employees, list_cars, list_sales,
-    delete_employee, delete_car, delete_sale, get_sales_by_date, get_sales_by_period,
-    get_sales_by_employee, best_selling_car_for_period, best_employee_for_period, total_profit_for_period
-)
+    delete_employee, delete_car, delete_sale)
 
-
+from reports import (get_sales_by_date, get_sales_by_period, best_selling_car_for_period, best_employee_for_period,
+                     get_sales_by_employee, total_profit_for_period)
 def main():
     while True:
         print("\nChoose an option:")
