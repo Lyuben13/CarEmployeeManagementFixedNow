@@ -3,14 +3,14 @@ from datetime import datetime
 from operations import list_cars, list_sales
 
 
-# 6. Функция за продажби по дата
+# Функция за продажби по дата
 def get_sales_by_date(specific_date):
     sales = list_sales()  # Получаване на списъка с продажби
     sales_on_date = [sale for sale in sales if sale.date_of_sale == specific_date]  # Филтриране по дата
     return sales_on_date  # Връщане на продажбите на конкретната дата
 
 
-# 7. Функция за продажби по период
+# Функция за продажби по период
 def get_sales_by_period(start_date, end_date):
     sales = list_sales()  # Получаване на списъка с продажби
     filtered_sales = []  # Списък за филтрираните продажби
@@ -26,7 +26,7 @@ def get_sales_by_period(start_date, end_date):
     return filtered_sales  # Връщане на филтрираните продажби
 
 
-# 8. Функция за продажби от служител
+# Функция за продажби от служител
 def get_sales_by_employee(employee_name):
     sales = list_sales()  # Получаване на списъка с продажби
     employee_sales = [sale for sale in sales if sale.employee == employee_name]  # Филтриране по служител
@@ -55,7 +55,7 @@ def sales_by_employee(employee_name):
     return sales  # Връщай резултатите, ако е необходимо
 
 
-# 9. Функция за най-продаваната кола за период
+# Функция за най-продаваната кола за период
 
 def best_selling_car_for_period(start_date, end_date):
     sales = get_sales_by_period(start_date, end_date)
@@ -88,7 +88,7 @@ def best_selling_car_for_period(start_date, end_date):
     return best_car  # noqa
 
 
-# 10. Функция за най-добър служител за период
+# Функция за най-добър служител за период
 def best_employee_for_period(start_date, end_date):
     sales = get_sales_by_period(start_date, end_date)
     employee_sales = {}
@@ -122,7 +122,7 @@ def best_employee_for_period(start_date, end_date):
     return best_employee if employee_sales else None  # noqa
 
 
-# 11. Функция за изчисляване на чиста печалба за период
+# Функция за изчисляване на чиста печалба за период
 def total_profit_for_period(start_date, end_date):
     sales = get_sales_by_period(start_date, end_date)
     total_profit = 0.0
