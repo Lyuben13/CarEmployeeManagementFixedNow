@@ -1,9 +1,10 @@
 from models.specifics import Employee, Car, Sale
 from operations import (
     add_employee, add_car, add_sale, list_employees, list_cars, list_sales,
-    delete_employee, delete_car, delete_sale, get_sales_by_date, get_sales_by_period,
-    get_sales_by_employee, best_selling_car_for_period, best_employee_for_period, total_profit_for_period
-)
+    delete_employee, delete_car, delete_sale)
+
+from reports import (get_sales_by_date, get_sales_by_period, best_selling_car_for_period, best_employee_for_period,
+                     get_sales_by_employee, total_profit_for_period)
 
 
 def main():
@@ -57,7 +58,7 @@ def main():
                     print(e)
                 save_choice = input("\nDo you want to save the report in a text file? (yes/no): ").strip().lower()
                 if save_choice == 'yes':
-                    with open("employees_report.txt", 'w') as file:
+                    with open("reports/employees_report.txt", 'w') as file:
                         for e in employees:
                             file.write(f"{e}\n")
                     print("Report saved as 'employees_report.txt'.")
@@ -71,7 +72,7 @@ def main():
                     print(c)
                 save_choice = input("\nDo you want to save the report in a text file? (yes/no): ").strip().lower()
                 if save_choice == 'yes':
-                    with open("cars_report.txt", 'w') as file:
+                    with open("reports/cars_report.txt", 'w') as file:
                         for c in cars:
                             file.write(f"{c}\n")
                     print("Report saved as 'cars_report.txt'.")
@@ -85,7 +86,7 @@ def main():
                     print(s)
                 save_choice = input("\nDo you want to save the report in a text file? (yes/no): ").strip().lower()
                 if save_choice == 'yes':
-                    with open("sales_report.txt", 'w') as file:
+                    with open("reports/sales_report.txt", 'w') as file:
                         for s in sales:
                             file.write(f"{s}\n")
                     print("Report saved as 'sales_report.txt'.")
@@ -100,7 +101,7 @@ def main():
                     print(sale)
                 save_choice = input("\nDo you want to save the report in a text file? (yes/no): ").strip().lower()
                 if save_choice == 'yes':
-                    filename = f"sales_{specific_date}.txt"
+                    filename = f"reports/sales_{specific_date}.txt"
                     with open(filename, 'w') as file:
                         for sale in sales:
                             file.write(f"{sale}\n")
@@ -117,7 +118,7 @@ def main():
                     print(sale)
                 save_choice = input("\nDo you want to save the report in a text file? (yes/no): ").strip().lower()
                 if save_choice == 'yes':
-                    filename = f"sales_{start_date}_to_{end_date}.txt"
+                    filename = f"reports/sales_{start_date}_to_{end_date}.txt"
                     with open(filename, 'w') as file:
                         for sale in sales:
                             file.write(f"{sale}\n")
@@ -133,7 +134,7 @@ def main():
                     print(sale)
                 save_choice = input("Do you want to save the report in a text file? (yes/no): ").strip().lower()
                 if save_choice == 'yes':
-                    filename = f"{employee_name.replace(' ', '_')}_sales_report.txt"
+                    filename = f"reports/{employee_name.replace(' ', '_')}_sales_report.txt"
                     with open(filename, 'w') as file:
                         for sale in sales:
                             file.write(f"{sale}\n")

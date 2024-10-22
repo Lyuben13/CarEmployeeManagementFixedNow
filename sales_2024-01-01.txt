@@ -1,1 +1,0 @@
-Employee: John Doe, Car: Toyota, Date: 2024-01-01, Price: 20000

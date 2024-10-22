@@ -1,4 +1,0 @@
-Employee: John Doe, Car: Toyota, Date: 2024-01-01, Price: 20000
-Employee: Jane Smith, Car: Honda, Date: 2024-01-02, Price: 25000
-Employee: Lyuben Andreev, Car: Passat, Date: 2024-09-26, Price: 80004
-Employee: Lyuben Andreev, Car: Mazda 6, Date: 2024-10-14, Price: 86000

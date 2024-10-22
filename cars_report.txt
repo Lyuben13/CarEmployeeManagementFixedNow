@@ -1,4 +1,0 @@
-Toyota, 2020, Corolla, Cost: 20000, Sale: 20000
-Honda, 2021, Civic, Cost: 25000, Sale: 25000
-volkswagen, 2024, Passat, Cost: 75004, Sale: 80004
-Mazda, 2022, Mazda 6, Cost: 78000, Sale: 86000
