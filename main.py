@@ -1,4 +1,8 @@
+import os
+import sys
+
 from models.specifics import Employee, Car, Sale
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
 from operations import (
     add_employee, add_car, add_sale, list_employees, list_cars, list_sales,
     delete_employee, delete_car, delete_sale)
