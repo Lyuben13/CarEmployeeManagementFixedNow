@@ -8,12 +8,13 @@ from loguru import logger
 # Конфигуриране на Loguru
 logger.add("file.log", rotation="1 MB", level="INFO", backtrace=True, diagnose=True)
 
+
 class TestOperations(unittest.TestCase):
 
     @patch('app_config.EMPLOYEE_DB_PATH', new_callable=lambda: Path('db/employees.csv'))  # Път до базата данни
     @patch('builtins.open', new_callable=mock_open)  # Мокване на open() за операции с файлове
     @patch('csv.DictWriter.writerow')  # Мокване на DictWriter
-    def test_add_employee(self, mock_writerow, mock_file, mock_db_path): # noqa
+    def test_add_employee(self, mock_writerow, mock_file, mock_db_path):  # noqa
         # Създаване на тестов служител
         employee = Employee("L.A.", "Developer", "08981234567", "LA@example.com")
 
@@ -38,7 +39,7 @@ class TestOperations(unittest.TestCase):
     @patch('app_config.CAR_DB_PATH', new_callable=lambda: Path('db/cars.csv'))  # Път до базата данни
     @patch('builtins.open', new_callable=mock_open)  # Мокване на open() за операции с файлове
     @patch('csv.DictWriter.writerow')  # Мокване на DictWriter
-    def test_add_car(self, mock_writerow, mock_file, mock_db_path): # noqa
+    def test_add_car(self, mock_writerow, mock_file, mock_db_path):  # noqa
         # Създаване на тестова кола
         car = Car("Toyota", "2020", "Corolla", "20000", "22000")
 
@@ -64,7 +65,7 @@ class TestOperations(unittest.TestCase):
     @patch('app_config.SALE_DB_PATH', new_callable=lambda: Path('db/sales.csv'))  # Път до базата данни
     @patch('builtins.open', new_callable=mock_open)  # Мокване на open() за операции с файлове
     @patch('csv.DictWriter.writerow')  # Мокване на DictWriter
-    def test_add_sale(self, mock_writerow, mock_file, mock_db_path): # noqa
+    def test_add_sale(self, mock_writerow, mock_file, mock_db_path):  # noqa
         # Създаване на тестова продажба
         sale = Sale("Lyuben Andreev", "Premiera", "2024-01-03", "2100")
 
