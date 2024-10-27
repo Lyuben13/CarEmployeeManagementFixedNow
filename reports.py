@@ -10,13 +10,13 @@ logger.remove()
 logger.add("app.log", rotation="1 MB", level="INFO", backtrace=True, diagnose=True)
 
 def ensure_folder_exists(folder_path):
-    """Проверява дали съществува папката; ако не съществува, я създава."""
+    """Проверява дали съществува папката, ако не съществува, я създава.""" # noqa
     if not os.path.exists(folder_path):
         os.makedirs(folder_path)
         logger.info(f"Created folder: {folder_path}")
 
 def save_report(report_content, report_path):
-    """Запазва съдържанието на отчет във файл на посочения път."""
+    """Запазва съдържанието на отчет във файл на посочения път.""" # noqa
     ensure_folder_exists(REPORTS_FOLDER)
     with open(report_path, mode='w') as file:
         file.write(report_content)
@@ -24,7 +24,7 @@ def save_report(report_content, report_path):
     print("Report successfully saved!\n")
 
 def get_sales_by_date(specific_date):
-    """Връща списък от продажби за конкретна дата."""
+    """Връща списък от продажби за конкретна дата.""" # noqa
     sales = list_sales()
     specific_sales = [sale for sale in sales if sale.date_of_sale == specific_date]
     logger.info(f"Sales on {specific_date}: {specific_sales}")
@@ -53,7 +53,7 @@ def get_sales_by_employee(employee_name):
     return employee_sales
 
 def prompt_save_report(report_content, report_name):
-    """Подканва потребителя да избере дали да запази отчета в файл.""" # noqa
+    """Подканва потребителя да избере дали да запази отчета във файл.""" # noqa
     should_save = input("Do you want to save this report? (yes/no): ").strip().lower()
     if should_save == 'yes':
         save_report(report_content, os.path.join(REPORTS_FOLDER, report_name))

@@ -47,4 +47,6 @@ class TestDeleteEmployee(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    unittest.main()  # Изпълнение на тестовете
+    tests = unittest.TestLoader().discover('.')
+    test_runner = unittest.TextTestRunner()
+    test_runner.run(tests)  # Изпълнение на тестовете
