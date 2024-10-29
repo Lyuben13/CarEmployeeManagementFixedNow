@@ -7,7 +7,6 @@ class TestEmployee(unittest.TestCase):
     @patch('models.specifics.Employee.to_dict', return_value={'full_name': 'Mocked Name'})
     def test_employee(self, mock_to_dict):
         """Тестваме класа Employee с макет за метода to_dict."""  # noqa
-        # Create an Employee instance with test data
         full_name = 'L.A.'
         job_position = 'Developer'
         contact_number = '08981234567'
