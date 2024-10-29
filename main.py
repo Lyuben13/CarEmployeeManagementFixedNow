@@ -2,13 +2,16 @@ import os
 import sys
 
 from models.specifics import Employee, Car, Sale
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
+
 from operations import (
     add_employee, add_car, add_sale, list_employees, list_cars, list_sales,
     delete_employee, delete_car, delete_sale)
 
 from reports import (get_sales_by_date, get_sales_by_period, best_selling_car_for_period, best_employee_for_period,
                      get_sales_by_employee, total_profit_for_period)
+
+"""основната директория на проекта към пътя за търсене на Python (sys.path)."""
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
 
 
 def main():
@@ -190,4 +193,5 @@ def main():
 
 
 if __name__ == "__main__":
+    print("Lyuben Andreev variant 1(Car dealership app) -> ")
     main()
